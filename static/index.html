@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Партнёры</title>
+</head>
+<body>
+  <h1>Список партнёров</h1>
+  <ul id="partners-list"></ul>
+
+  <script>
+    fetch('/api/partners')
+      .then(response => response.json())
+      .then(data => {
+        const list = document.getElementById('partners-list');
+        data.forEach(partner => {
+          const li = document.createElement('li');
+          li.textContent = partner;
+          list.appendChild(li);
+        });
+      })
+      .catch(err => console.error('Ошибка загрузки партнёров:', err));
+      console.log("python app")
+  </script>
+</body>
+</html>
